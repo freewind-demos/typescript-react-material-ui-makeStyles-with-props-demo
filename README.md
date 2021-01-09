@@ -1,7 +1,7 @@
-TypeScript React "material-ui" Demo
+TypeScript React "material-ui" "makeStyles/useStyles" Demo
 ===================================
 
-如何使用TypeScript来写"material-ui"
+使用 makeStyles 和 useStyles 来定制组件样式
 
 ```
 npm install
