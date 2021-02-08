@@ -1,20 +1,31 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import {Theme as DefaultTheme} from '@material-ui/core/styles/createMuiTheme';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    border: 0,
-    borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    color: 'white',
-    height: 48,
-    padding: `${theme.spacing() * 3}px 30px`,
-  },
+const useStyles = makeStyles<DefaultTheme, Props>((theme) => ({
+  line1: (props) => ({
+    width: props.baseWidth,
+    backgroundColor: '#EEEEEE',
+  }),
+  line2: (props) => ({
+    width: props.baseWidth * 2,
+    backgroundColor: '#EEEEEE',
+  }),
+  line3: (props) => ({
+    width: props.baseWidth * 3,
+    backgroundColor: '#EEEEEE',
+  }),
 }));
 
-export default function Hello() {
-  const classes = useStyles();
-  return <Button className={classes.root}>Hello</Button>;
+type Props = {
+  baseWidth: number
+}
+
+export const Hello: FC<Props> = (props) => {
+  const classes = useStyles(props);
+  return <div>
+    <div className={classes.line1}>Line1</div>
+    <div className={classes.line2}>Line2</div>
+    <div className={classes.line3}>Line3</div>
+  </div>;
 }

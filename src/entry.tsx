@@ -1,8 +1,8 @@
-import Hello from './hello'
+import {Hello} from './hello'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
 ReactDOM.render(
-    <Hello/>,
-    document.body
+  <Hello baseWidth={100}/>,
+  document.body
 )
